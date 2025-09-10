@@ -24,6 +24,8 @@ bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (b
 22. Commit dan push semua perubahan ke Github dan PWS
 
 Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+<img width="280" height="204" alt="Diagram" src="https://github.com/user-attachments/assets/74328fb9-55c6-4fc0-9976-9aa483501fcf" />
+
 Saat user mengirim request lewat browser, Django akan mengecek urls.py untuk mencari URL yang sesuai dan menentukan fungsi di views.py mana yang harus dijalankan. Di dalam views.py, jika perlu data, maka akan ambil dari models.py yang berinteraksi langsung dengan database. Setelah datanya siap, view akan mengirim data tersebut ke template HTML untuk dirender jadi tampilan. Hasil akhirnya dikirim kembali ke browser sebagai respon dan ditampilkan ke user.
 
 Jelaskan peran settings.py dalam proyek Django!
