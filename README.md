@@ -33,6 +33,11 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
 
 Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
 ---> Asdosnya sangat helpful 10/10
+<img width="1346" height="874" alt="Screenshot 2025-09-17 082700" src="https://github.com/user-attachments/assets/e15bd0ac-3243-4bd1-b5c9-52cf05351141" />
+<img width="1351" height="869" alt="Screenshot 2025-09-17 082645" src="https://github.com/user-attachments/assets/dba32ac1-d3ba-4439-a820-40de2e119b0e" />
+<img width="1349" height="879" alt="Screenshot 2025-09-17 082557" src="https://github.com/user-attachments/assets/0856ef64-da69-47d8-abcb-2977e3c2e8d2" />
+<img width="1352" height="876" alt="Screenshot 2025-09-17 082536" src="https://github.com/user-attachments/assets/8a413427-3158-4a64-b27b-391691b3b60a" />
+
 
 TUGAS 2
 bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
