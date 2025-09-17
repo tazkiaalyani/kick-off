@@ -1,7 +1,6 @@
 https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/Jelaskan 
 
 TUGAS 3
-=======
  Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
  ---> Data delivery itu penting biar data bisa dikirim dan diterima antar bagian sistem atau bahkan antar aplikasi. Kalo nggak ada data delivery, frontend sama backend nggak bisa saling komunikasi. Contohnya, pas frontend butuh data produk, backend harus ngasih data dengan format yang bisa dipahami. Jadi data delivery ini kayak jembatan komunikasi.
 
@@ -36,7 +35,6 @@ Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
 ---> Asdosnya sangat helpful 10/10
 
 TUGAS 2
-=======
 bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Buat folder baru kick off sebagai direktori project
 2. Mengaktifkan virtual environment dengan python -m venv env dan env\Scripts\activate
@@ -77,8 +75,3 @@ Django jadi pilihan awal buat belajar karena dia framework yang lengkap dan ters
 
 Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
 10/10
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 8e6543b (Tugas 3)
