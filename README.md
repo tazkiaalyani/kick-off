@@ -1,4 +1,42 @@
 https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/Jelaskan 
+
+TUGAS 3
+=======
+ Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+ ---> Data delivery itu penting biar data bisa dikirim dan diterima antar bagian sistem atau bahkan antar aplikasi. Kalo nggak ada data delivery, frontend sama backend nggak bisa saling komunikasi. Contohnya, pas frontend butuh data produk, backend harus ngasih data dengan format yang bisa dipahami. Jadi data delivery ini kayak jembatan komunikasi.
+
+ Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+ ---> Menurutku JSON lebih nyaman untuk digunakan, karena cenderung lebih simple, lebih ringan, mudah dibaca, dan langsung nyambung dengan JavaScript atau bahasa lain. XML sebenarnya juga bisa, tapi formatnya lebih rumit, banyak tag, sehingga lebih boros. JSON lebih populer karena lebih praktis dan cocok untuk web modern.
+
+Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+---> is_valid() digunakan untuk meriksa data dari form sudah sesuai aturan atau belum. Misalnya field wajib isi, tipe datanya angka, panjang minimal, dan lain-lain. Kalau datanya tidak valid, otomatis akan dikasih tau error. Ini penting agar data yang salah atau aneh tidak masuk ke database.
+
+Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+---> csrf_token itu untuk menjaga form dari serangan CSRF (Cross-Site Request Forgery). Kalau token ini tidak ada, penyerang bisa memanfaatkan celah untuk membuat user tanpa sadar melakukan aksi berbahaya, seperti submit form palsu, transaksi, atau menghapus data. Dengan csrf_token, request bisa divalidasi secara menyeluruh dari aplikasi kita, bukan dari luar.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+--->
+1. Buat folder `templates` di root project `kick off`, lalu tambahkan file `base.html` sebagai kerangka dasar halaman web.
+2. Tambahkan `BASE_DIR / 'templates'` ke bagian `TEMPLATES` di `settings.py` agar `base.html` bisa dikenali oleh Django.
+3. Ubah `main.html` supaya menggunakan `base.html` dengan memanfaatkan `{% extends %}` dan `{% block content %}`.
+4. Tambahkan file `forms.py` di folder `main` yang berisi form untuk input data produk baru.
+5. Perbarui `views.py` dengan menambahkan fungsi `create_product` untuk menyimpan data produk dari form serta menyesuaikan fungsi lain yang diperlukan.
+6. Import fungsi baru ke `urls.py` lalu tambahkan route pada `urlpatterns`.
+7. Sesuaikan kembali `main.html` untuk menampilkan daftar produk beserta tombol Add Product.
+8. Buat file `create_product.html` untuk form input produk dengan `{% csrf_token %}`, dan `product_detail.html` untuk menampilkan detail produk tertentu.
+9. Tambahkan alamat ke `CSRF_TRUSTED_ORIGINS` di `settings.py`, kemudian jalankan server untuk memastikan konfigurasi berjalan.
+10. Import `HttpResponse` dan `Serializer` di `views.py` untuk menyiapkan response data dalam format XML maupun JSON.
+11. Tambahkan fungsi `show_xml` di `views.py`, kemudian daftarkan endpoint-nya di `urls.py` dan uji melalui browser.
+12. Buat fungsi `show_json` dengan langkah yang sama lalu cek kembali hasilnya.
+13. Tambahkan fungsi `show_xml_by_id` dan `show_json_by_id` dengan `try-except` untuk handle data produk berdasarkan ID, lalu daftarkan ke `urls.py`.
+14. Gunakan Postman untuk mengetes semua endpoint (GET XML, JSON, dan versi by ID).
+15. Lakukan push project ke GitHub dan PWS dengan perintah `git add .`, `git commit`, `git push origin master`, lalu `git push pws master`.
+
+Apakah ada feedback untuk asdos di tutorial 2 yang sudah kalian kerjakan?
+---> Asdosnya sangat helpful 10/10
+
+TUGAS 2
+=======
 bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Buat folder baru kick off sebagai direktori project
 2. Mengaktifkan virtual environment dengan python -m venv env dan env\Scripts\activate
@@ -39,3 +77,8 @@ Django jadi pilihan awal buat belajar karena dia framework yang lengkap dan ters
 
 Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
 10/10
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8e6543b (Tugas 3)

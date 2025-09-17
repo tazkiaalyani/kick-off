@@ -1,7 +1,7 @@
-import uuid
 from django.db import models
+import uuid
 
-class News(models.Model):
+class Product(models.Model):
     CATEGORY_CHOICES = [
         ('jersey', 'Jersey'),
         ('shoes', 'Sepatu Bola'),
@@ -12,6 +12,7 @@ class News(models.Model):
     ]
     
     name = models.CharField(max_length=255)
+    product_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     price = models.IntegerField()
     description = models.TextField()
     thumbnail = models.URLField(blank=True, null=True)
@@ -23,12 +24,13 @@ class News(models.Model):
 
     
     def __str__(self):
-        return self.title
+        return self.name
     
     @property
-    def is_news_hot(self):
-        return self.news_views > 20
+    def is_available(self):
+        return self.stock > 0
         
-    def increment_views(self):
-        self.news_views += 1
+    def increment_stock (self):
+        self.stock += 1
         self.save()
+
