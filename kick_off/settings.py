@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1", "tazkia-nur41-kickoff.pbp.cs.ui.ac.id
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/"
+    "https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id"
 ]
 
 
