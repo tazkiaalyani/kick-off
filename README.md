@@ -1,4 +1,34 @@
-https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/Jelaskan 
+https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/
+
+TUGAS 4
+Apa itu Django AuthenticationForm? Jelaskan juga kelebihan dan kekurangannya.
+---> AuthenticationForm adalah form bawaan Django untuk proses login. Isinya berupa field username dan password, lalu otomatis cek apakah input valid sesuai database user. Kelebihannya: gampang digunakan, sudah ada validasi built-in, dan aman karena sesuai standar Django. 
+Kekurangannya: sedikit kaku, default-nya hanya support username & password, jadi kalau mau custom login (misalnya pakai email) harus extend atau bikin form sendiri.
+
+Apa perbedaan antara autentikasi dan otorisasi? Bagaiamana Django mengimplementasikan kedua konsep tersebut?
+---> Autentikasi itu untuk cek identitas user, apakah ini beneran akun user. Otorisasi itu untuk cek hak akses user, misalnya apakah user boleh akses halaman admin atau edit produk orang lain?. Di Django, autentikasi di-handle melalui sistem User, login, dan session. Sedangkan otorisasi diatur melalui permission, decorator (@login_required, @permission_required), atau atribut user.
+
+Apa saja kelebihan dan kekurangan session dan cookies dalam konteks menyimpan state di aplikasi web?
+---> Session menyimpan data di server, browser user hanya pegang ID session. Aman karena user gak bisa lihat isinya, tapi lebih berat ke server. Cookies menyimpan data langsung di browser, lebih ringan untuk server tapi rawan karena bisa dimodifikasi atau dicuri. Jadi session lebih aman, cookies lebih ringan tapi beresiko.
+
+Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? Bagaimana Django menangani hal tersebut?
+---> Cookies tidak sepenuhnya aman secara default. Ada resiko seperti XSS atau session hijacking yang bisa nyolong cookie user. Django dapat mengatasi dengan membuat cookie session HttpOnly (ga bisa diakses JS), bisa di-set Secure (cuma lewat HTTPS), ada CSRF token buat cegah serangan CSRF, dan session Django juga terenkripsi. Jadi lebih aman, tapi tetap harus hati-hati pas develop.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+---> 
+1. Aktifkan environment virtual seperti biasa, lalu di views.py tambahin import UserCreationForm dan messages.
+2. Buat fungsi register di views.py untuk nge-handle form pendaftaran dan nyimpen akun baru.
+3. Siapin file register.html di folder templates supaya form bisa ditampilkan.
+4. Import fungsi register tadi ke urls.py, lalu tambahin path ke urlpatterns.
+5. Untuk login, tambahin import authenticate, login, dan AuthenticationForm di views.py. Setelah itu bikin fungsi login_user.
+6. Buat file login.html untuk nampilin form login.
+7. Tambahin fungsi login tadi ke urls.py dengan path barunya.
+8. Tambahkan import logout di views.py, bikin fungsi logout_user, terus di main.html kasih tombol logout.
+9. Import logout_user ke urls.py dan tambahkan path barunya.
+10. Import login_required lalu tempelin decorator @login_required di fungsi view yang perlu proteksi login.
+11. Tambahin import HttpResponseRedirect, reverse, dan datetime. Edit fungsi login biar nyimpen cookie last_login, masukin juga ke context show_main, dan pas logout cookie itu dihapus.
+12. Supaya produk terhubung dengan user, import User di models.py, tambahin field user di model Product, lalu makemigrations & migrate. Setelah itu modifikasi create_product, show_main, tambahin tombol filter My/All di main.html, serta tampilkan author produk di detail.
+
 
 TUGAS 3
  Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?

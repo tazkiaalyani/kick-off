@@ -1,5 +1,7 @@
 from django.db import models
 import uuid
+from django.contrib.auth.models import User
+
 
 class Product(models.Model):
     CATEGORY_CHOICES = [
@@ -21,6 +23,7 @@ class Product(models.Model):
     stock = models.IntegerField(default=0)
     brand = models.CharField(max_length=100)
     rating = models.FloatField(default=0.0)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     
     def __str__(self):

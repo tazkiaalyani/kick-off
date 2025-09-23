@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Kick Off</h1>
 
 <h5>NPM: </h5>
@@ -13,7 +15,19 @@
   <button>+ Add Product</button>
 </a>
 
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 <hr>
+
+<a href="?filter=all">
+    <button type="button">All Products</button>
+</a>
+<a href="?filter=my">
+    <button type="button">My Products</button>
+</a> 
 
 {% if not product_list %}
 <p>Belum ada data produk pada toko Kick Off.</p>
@@ -40,6 +54,35 @@
 </div>
 
 <hr>
+
+{% endfor %}
+
+<h2> Limited Items </h2>
+{% for product in limited_items %}
+
+<div>
+  <h2><a href="{% url 'main:show_product' product.product_id %}">{{ product.name }}</a></h2>
+
+  <p>
+    <b>{{ product.category }}</b>
+    {% if product.is_featured %} | <b>Featured</b>{% endif %}
+    {% if product.is_available %} | <b>Available</b>{% endif %}
+  </p>
+
+  {% if product.thumbnail %}
+  <img src="{{ product.thumbnail }}" alt="thumbnail" width="150" height="100">
+  <br />
+  {% endif %}
+
+  <p>{{ product.description|truncatewords:25 }}...</p>
+
+  <p><a href="{% url 'main:show_product' product.product_id %}"><button>Read More</button></a></p>
+</div>
+
+
+
+
 {% endfor %}
 
 {% endif %}
+{% endblock content %}
