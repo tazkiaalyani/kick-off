@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block meta %}
-<title>Create Product - Kick Off</title>
+<title>Edit Product - Kick Off</title>
 {% endblock meta %}
 
 {% block content %}
@@ -17,8 +19,8 @@
     <!-- Form Card -->
     <div class="bg-white rounded-xl border border-[#D9D9D9] shadow-sm p-6 sm:p-8">
       <div class="mb-8">
-        <h1 class="text-2xl font-bold text-[#001F54] mb-2">Add New Product</h1>
-        <p class="text-[#6C757D]">Fill in the details below to add a product to Kick Off Shop</p>
+        <h1 class="text-2xl font-bold text-[#001F54] mb-2">Edit Product</h1>
+        <p class="text-[#6C757D]">Update your product details below</p>
       </div>
       
       <form method="POST" class="space-y-6">
@@ -48,7 +50,7 @@
           </a>
           <button type="submit" 
                   class="order-1 sm:order-2 flex-1 bg-[#0466C8] text-white px-6 py-3 rounded-md font-medium hover:bg-[#0353A4] transition-colors">
-            Publish Product
+            Update Product
           </button>
         </div>
       </form>

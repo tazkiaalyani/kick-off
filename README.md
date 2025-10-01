@@ -1,5 +1,42 @@
 https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/
 
+TUGAS 5
+Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+---> Kalau satu elemen HTML punya beberapa CSS selector, browser akan memilih style berdasarkan tingkat spesifisitasnya. Selector elemen seperti div atau p prioritasnya paling rendah. Selector class seperti .container lebih spesifik, jadi akan menimpa element selector. Selector ID seperti #header lebih tinggi lagi, sehingga menimpa class dan element selector. Kalau style ditulis langsung di elemen dengan style="", itu lebih tinggi prioritasnya dibanding CSS di file. Terakhir, penggunaan !important akan menimpa semua aturan lain. Jadi, semakin spesifik selector, semakin besar kemungkinan browser menerapkannya ke elemen.
+
+Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design, serta jelaskan mengapa!
+---> Responsive design itu penting banget supaya tampilan web tidak berantakan di semua layar, mau HP, tablet, atau komputer. Kalau tidak responsive, layout bisa pecah, teks terlalu kecil atau terlalu besar, dan pengguna harus scroll horizontal yang bikin rumit. Contohnya Google dan Tokopedia udah responsive, jadi otomatis menyesuaikan layar. Tapi situs lama seperti sekolah atau instansi kadang belum responsive, jadi ketika dibuka di HP tampilannya acak-acakan dan susah dipake. Responsive bikin web nyaman untuk semua orang.
+
+Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+---> Margin itu jarak di luar elemen, agar elemen tidak nempel dengan yang lain. Border itu garis pinggir elemen, bisa diberi warna dan tebal. Padding itu jarak di dalam elemen, antara isi elemen dan border. Cara membuatnya di CSS mudah, misal:
+div {
+  margin: 10px;
+  border: 2px solid black;
+  padding: 5px;
+}
+Jadi isi elemen tidak nempel ke border, dan elemen tidak nempel ke elemen lain.
+
+Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+---> Flexbox itu untuk ngatur elemen dalam satu arah saja, bisa baris atau kolom. Enaknya, mudah untuk ngatur posisi dan jarak antar elemen. Grid berbeda, dia layout dua dimensi, baris sama kolom sekaligus. Cocok untuk layout kompleks seperti dashboard atau galeri. Intinya, Flexbox untuk yang simpel, Grid untuk yang lebih rumit tapi lebih rapi.
+
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+---> 
+1. Aktifkan environment virtual seperti biasa, lalu di views.py tambahkan import redirect, get_object_or_404, dan messages supaya bisa handle edit dan delete product dengan feedback ke user.
+2. Modifikasi fungsi create_product di views.py supaya form product menggunakan Tailwind classes agar tampilan form lebih rapi dan modern.
+3. Buat fungsi edit_product di views.py untuk nge-handle update product. Gunakan get_object_or_404 untuk ambil product sesuai id, lakukan validasi form, lalu simpan perubahan.
+4. Buat fungsi delete_product di views.py untuk menghapus product berdasarkan id. Tambahkan messages supaya user dapat notifikasi sukses atau gagal.
+5. Di template main.html, tampilkan semua product dalam card layout pakai Tailwind. Setiap card menampilkan nama product, harga, dan author. Tambahkan tombol Edit dan Delete di tiap card.
+6. Import semua fungsi baru (edit_product, delete_product) ke urls.py, lalu tambahkan path baru, misal:
+
+path('product/edit/<int:id>/', edit_product, name='edit_product')
+
+path('product/delete/<int:id>/', delete_product, name='delete_product')
+7. Buat navbar responsive di base.html pakai Tailwind. Untuk versi mobile, tampilkan hamburger menu yang bisa diklik; untuk desktop tampil horizontal. Tambahkan link Home, Create Product, Login, dan Logout sesuai status login user.
+8. Pastikan semua tampilan pakai Tailwind classes konsisten, termasuk spacing, typography, dan warna card supaya layout rapi dan modern.
+9. Cek semua halaman (main.html, create_product.html, edit_product.html) dan pastikan layout responsive di HP, tablet, dan desktop.
+10. Test semua fungsi: create product, edit, delete, navigasi navbar, dan tampilannya. Pastikan tidak ada error dan semua sesuai requirement assignment.
+11. Setelah semuanya berfungsi dengan baik, lakukan git add ., git commit -m "", dan git push ke repository GitHub.
+
 TUGAS 4
 Apa itu Django AuthenticationForm? Jelaskan juga kelebihan dan kekurangannya.
 ---> AuthenticationForm adalah form bawaan Django untuk proses login. Isinya berupa field username dan password, lalu otomatis cek apakah input valid sesuai database user. Kelebihannya: gampang digunakan, sudah ada validasi built-in, dan aman karena sesuai standar Django. 

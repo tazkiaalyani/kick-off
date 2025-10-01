@@ -1,0 +1,96 @@
+<nav class="fixed top-0 left-0 w-full bg-[#EEEAE3] border-b border-[#DDDCDE] shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Brand -->
+      <div class="flex items-center">
+        <h1 class="text-xl font-semibold text-[#001F54]">
+          <span class="text-[#0466C8]">Kick</span> Off
+        </h1>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Home</a>
+        <a href="{% url 'main:create_product' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">
+          Create Product
+        </a>
+      </div>
+
+      <!-- Desktop User Section -->
+      <div class="hidden md:flex items-center space-x-6">
+        {% if user.is_authenticated %}
+          <div class="text-right">
+            <div class="text-sm font-medium text-[#001F54]">{{ name|default:user.username }}</div>
+            <div class="text-xs text-[#6C757D]">{{ npm|default:"Student" }} - {{ class|default:"Class" }}</div>
+          </div>
+          <a href="{% url 'main:logout' %}" class="text-red-600 hover:text-red-700 font-medium transition-colors">
+            Logout
+          </a>
+        {% else %}
+          <a href="{% url 'main:login' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Login</a>
+          <a href="{% url 'main:register' %}" class="bg-[#0466C8] hover:bg-[#00509D] text-white px-4 py-2 rounded font-medium transition-colors">
+            Register
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button p-2 text-[#6C757D] hover:text-[#001F54] transition-colors">
+          <span class="sr-only">Open menu</span>
+          <div class="w-6 h-6 flex flex-col justify-center items-center">
+            <span class="bg-current block h-0.5 w-6 rounded-sm"></span>
+            <span class="bg-current block h-0.5 w-6 rounded-sm my-0.5"></span>
+            <span class="bg-current block h-0.5 w-6 rounded-sm"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu hidden md:hidden bg-[#EEEAE3] border-t border-[#DDDCDE]">
+    <div class="px-6 py-4 space-y-4">
+      <!-- Mobile Navigation Links -->
+      <div class="space-y-1">
+        <a href="/" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Home</a>
+        <a href="{% url 'main:create_product' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">
+          Create Product
+        </a>
+
+      </div>
+
+      <!-- Mobile User Section -->
+      <div class="border-t border-[#DDDCDE] pt-4">
+        {% if user.is_authenticated %}
+          <div class="mb-3">
+            <div class="font-medium text-[#001F54]">{{ name|default:user.username }}</div>
+            <div class="text-sm text-[#6C757D]">{{ npm|default:"Student" }} - {{ class|default:"Class" }}</div>
+          </div>
+          <a href="{% url 'main:logout' %}" class="block text-red-600 hover:text-red-700 font-medium py-2">
+            Logout
+          </a>
+        {% else %}
+          <div class="space-y-2">
+            <a href="{% url 'main:login' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Login</a>
+            <a href="{% url 'main:register' %}" class="block bg-[#0466C8] hover:bg-[#00509D] text-white font-medium py-2 px-4 rounded text-center">
+              Register
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  });
+</script>

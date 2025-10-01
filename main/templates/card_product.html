@@ -1,0 +1,76 @@
+{% load static %}
+<article class="bg-white rounded-lg border border-[#D9D9D9] hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+  <!-- Thumbnail -->
+  <div class="aspect-[16/9] relative overflow-hidden">
+    {% if product.thumbnail %}
+      <img src="{{ product.thumbnail }}" alt="{{ product.name }}" class="w-full h-full object-cover">
+    {% else %}
+      <div class="w-full h-full bg-[#F2F2F2]"></div>
+    {% endif %}
+
+    <!-- Category Badge -->
+    <div class="absolute top-3 left-3">
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-[#001F54] text-white">
+        {{ product.category }}
+      </span>
+    </div>
+
+    <!-- Status Badges (optional, pastikan field ada di model) -->
+    <div class="absolute top-3 right-3 flex space-x-2">
+      {% if product.is_best_seller %}
+        <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-[#FFE066] text-[#7F6000]">
+          Best Seller
+        </span>
+      {% endif %}
+      {% if product.is_new %}
+        <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-[#FF6B6B] text-white">
+          New Arrival
+        </span>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-5">
+    <div class="flex items-center text-sm text-[#6C757D] mb-3">
+      <time datetime="{{ product.created_at|date:'c' }}">
+        {{ product.created_at|date:"M j, Y" }}
+      </time>
+      <span class="mx-2">•</span>
+      <span>{{ product.views }} views</span>
+    </div>
+
+    <h3 class="text-lg font-semibold text-[#001F54] mb-3 line-clamp-2 leading-tight">
+      <a href="{% url 'main:show_product' product.product_id %}" class="hover:text-[#0466C8] transition-colors">
+        {{ product.name }}
+      </a>
+    </h3>
+
+    <p class="text-[#495057] text-sm leading-relaxed line-clamp-3 mb-4">
+      {{ product.description|truncatewords:20 }}
+    </p>
+
+    <!-- Action Buttons -->
+    {% if user.is_authenticated and product.user == user %}
+      <div class="flex items-center justify-between pt-4 border-t border-[#E9ECEF]">
+        <a href="{% url 'main:show_product' product.product_id %}" class="text-[#0466C8] hover:text-[#0353A4] font-medium text-sm transition-colors">
+          View details
+        </a>
+        <div class="flex space-x-2">
+          <a href="{% url 'main:edit_product' product.product_id %}" class="text-[#6C757D] hover:text-[#343A40] text-sm transition-colors">
+            Edit
+          </a>
+          <a href="{% url 'main:delete_product' product.product_id %}" class="text-[#D62828] hover:text-[#A4161A] text-sm transition-colors">
+            Delete
+          </a>
+        </div>
+      </div>
+    {% else %}
+      <div class="pt-4 border-t border-[#E9ECEF]">
+        <a href="{% url 'main:show_product' product.product_id %}" class="text-[#0466C8] hover:text-[#0353A4] font-medium text-sm transition-colors">
+          View details →
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</article>
