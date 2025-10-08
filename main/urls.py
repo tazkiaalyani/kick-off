@@ -1,8 +1,9 @@
 from django.urls import path
+from main.views import add_product_entry_ajax
 from main.views import (
     edit_product, show_main, create_product, show_product,
     show_xml, show_json, show_json_by_id, show_xml_by_id,
-    register, login_user, logout_user, delete_product,
+    register, login_user, logout_user, delete_product, show_category,
 )
 app_name = 'main'
 
@@ -22,4 +23,7 @@ urlpatterns = [
 
     path('product/<uuid:product_id>/edit/', edit_product, name='edit_product'),
     path('product/<uuid:product_id>/delete/', delete_product, name='delete_product'),
+    path('category/<str:category>/', show_category, name='category'),
+
+    path('add-product-ajax/', add_product_entry_ajax, name='add_product_entry_ajax'),
 ]

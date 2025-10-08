@@ -12,6 +12,10 @@
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Home</a>
+        <a href="{% url 'main:category' 'jersey' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Jersey</a>
+        <a href="{% url 'main:category' 'shoes' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Shoes</a>
+        <a href="{% url 'main:category' 'equipment' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Equipment</a>
+        <a href="{% url 'main:category' 'accessories' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">Accessories</a>
         <a href="{% url 'main:create_product' %}" class="text-[#6C757D] hover:text-[#001F54] font-medium transition-colors">
           Create Product
         </a>
@@ -55,10 +59,13 @@
       <!-- Mobile Navigation Links -->
       <div class="space-y-1">
         <a href="/" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Home</a>
+        <a href="{% url 'main:category' 'jersey' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Jersey</a>
+        <a href="{% url 'main:category' 'shoes' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Shoes</a>
+        <a href="{% url 'main:category' 'equipment' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Equipment</a>
+        <a href="{% url 'main:category' 'accessories' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">Accessories</a>
         <a href="{% url 'main:create_product' %}" class="block text-[#6C757D] hover:text-[#001F54] font-medium py-2">
           Create Product
         </a>
-
       </div>
 
       <!-- Mobile User Section -->

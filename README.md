@@ -1,5 +1,21 @@
 https://tazkia-nur41-kickoff.pbp.cs.ui.ac.id/
 
+TUGAS 6
+Apa perbedaan antara synchronous request dan asynchronous request?
+---> Synchronous request adalah permintaan ke server yang mengharuskan browser menunggu hingga server merespon sebelum pengguna dapat berinteraksi kembali dengan halaman. Sedangkan asynchronous request, seperti AJAX, memungkinkan browser tetap responsif karena request dikirim dan diproses di latar belakang tanpa harus me-refresh seluruh halaman.
+
+Bagaimana AJAX bekerja di Django (alur request–response)?
+---> AJAX mengirim permintaan ke server melalui JavaScript tanpa mereload halaman. Django menerima permintaan tersebut melalui views, memproses data, dan mengembalikan response, biasanya berupa JSON atau HTML partial. JavaScript kemudian menggunakan response tersebut untuk memperbarui konten halaman secara langsung. Alurnya adalah: aksi pengguna -> AJAX request -> Django view -> response -> update halaman via JavaScript.
+
+Apa keuntungan menggunakan AJAX dibandingkan render biasa di Django?
+---> AJAX memungkinkan halaman tidak reload penuh sehingga proses lebih cepat dan interaksi pengguna lebih lancar. Penggunaan bandwidth lebih efisien karena hanya data yang dibutuhkan yang dikirim. AJAX juga mendukung fitur interaktif seperti live search, filter dinamis, atau update konten secara real-time.
+
+Bagaimana cara memastikan keamanan saat menggunakan AJAX untuk fitur Login dan Register di Django?
+---> Keamanan AJAX dapat dijaga dengan selalu menyertakan CSRF token pada setiap request POST. Validasi data harus dilakukan di server side. Gunakan HTTPS untuk mengamankan data sensitif dan hindari pengiriman password dalam bentuk plain text. Penanganan error juga harus aman agar tidak membuka celah bagi eksploitasi.
+
+Bagaimana AJAX mempengaruhi pengalaman pengguna (User Experience) pada website?
+---> Penggunaan AJAX membuat interaksi pengguna lebih cepat dan responsif karena halaman tidak perlu reload penuh. Pengguna dapat tetap berinteraksi dengan halaman sementara data sedang diproses, sehingga pengalaman menggunakan website menjadi lebih nyaman, modern, dan efisien.
+
 TUGAS 5
 Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 ---> Kalau satu elemen HTML punya beberapa CSS selector, browser akan memilih style berdasarkan tingkat spesifisitasnya. Selector elemen seperti div atau p prioritasnya paling rendah. Selector class seperti .container lebih spesifik, jadi akan menimpa element selector. Selector ID seperti #header lebih tinggi lagi, sehingga menimpa class dan element selector. Kalau style ditulis langsung di elemen dengan style="", itu lebih tinggi prioritasnya dibanding CSS di file. Terakhir, penggunaan !important akan menimpa semua aturan lain. Jadi, semakin spesifik selector, semakin besar kemungkinan browser menerapkannya ke elemen.

@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 class Product(models.Model):
     CATEGORY_CHOICES = [
         ('jersey', 'Jersey'),
-        ('shoes', 'Sepatu Bola'),
-        ('ball', 'Bola'),
-        ('accessories', 'Aksesori'),
-        ('equipment', 'Perlengkapan'),
-        ('training', 'Peralatan Latihan'),
+        ('shoes', 'Shoes'),
+        ('ball', 'Ball'),
+        ('accessories', 'Accessories'),
+        ('equipment', 'Equipment'),
+        ('training', 'Training'),
     ]
     
     name = models.CharField(max_length=255)
@@ -24,6 +24,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=100)
     rating = models.FloatField(default=0.0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     
     def __str__(self):
