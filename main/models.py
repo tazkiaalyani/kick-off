@@ -37,4 +37,20 @@ class Product(models.Model):
     def increment_stock (self):
         self.stock += 1
         self.save()
+        
+class Author(models.Model):
+    bio = models.TextField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.user.username
+    
+class Book(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=255)
+    authors = models.ManyToManyField(Author)
+
+    def __str__(self):
+        return self.title
+
 

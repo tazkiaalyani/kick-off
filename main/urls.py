@@ -1,10 +1,11 @@
 from django.urls import path
-from main.views import add_product_entry_ajax
+from main.views import add_product_entry_ajax, create_product_flutter
 from main.views import (
     edit_product, show_main, create_product, show_product,
     show_xml, show_json, show_json_by_id, show_xml_by_id,
-    register, login_user, logout_user, delete_product, show_category,
+    register, login_user, logout_user, delete_product, show_category, proxy_image,
 )
+
 app_name = 'main'
 
 urlpatterns = [
@@ -26,4 +27,6 @@ urlpatterns = [
     path('category/<str:category>/', show_category, name='category'),
 
     path('add-product-ajax/', add_product_entry_ajax, name='add_product_entry_ajax'),
+    path('proxy-image/', proxy_image, name='proxy_image'),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 ]
